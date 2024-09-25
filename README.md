@@ -186,7 +186,7 @@ fn main() {
 However, Rust's borrowing rules don’t allow more than one mutable reference at a time, which can be limiting in certain scenarios. For example, what if you need multiple parts of your program to mutate the same data simultaneously, without violating Rust’s safety? This is where the combination of `Rc<T>` and `RefCell<T>` comes into play, allowing shared ownership *and* mutation.
 
 
-### Combining <RefCell> and <Rc> we can have multiple owners of mutable data. (single-threaded)
+### Combining RefCell and Rc we can have multiple owners of mutable data. (single-threaded)
 
 
 A common way to use `RefCell<T>` is in combination with `Rc<T>`. Recall that `Rc<T>` lets you have multiple owners of some data, but it only gives immutable access to that data by default. If you have an `Rc<T>` that holds a `RefCell<T>`, you can get a value that can have multiple owners *and* that you can mutate! [3]
